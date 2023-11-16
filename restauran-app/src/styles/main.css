@@ -1,0 +1,387 @@
+:root {
+  --primary: #cece5a;
+  --bg: #ffe17b;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+.tab-focus:focus {
+  outline: 2px solid #000;
+}
+
+.skip-link {
+  position: absolute;
+  top: -54px;
+  left: 0;
+  background-color: #bf1722;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+body {
+  font-family: "Pacifico", cursive;
+  background-color: var(--bg);
+  color: #b44c34;
+  margin: 0;
+}
+
+main {
+  margin-top: 86px;
+}
+
+.app-bar {
+  font-family: "Dela Gothic One", cursive;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.7rem 7%;
+  background-color: rgba(206, 206, 90, 0.8);
+  border-bottom: 1px solid #c51605;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.app-bar .app-bar_brand {
+  /* font-size: 1rem; */
+  color: #fd8d14;
+  display: flex;
+}
+
+.app-bar .app-bar_brand span {
+  color: #c51605;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 10px;
+  padding: 0;
+}
+.app-bar ul {
+  display: flex;
+  list-style: none;
+
+}
+.app-bar .app-bar_navigation ul li a {
+  display: inline-block;
+  color: #b2533e;
+  font: 1.5rem;
+  list-style: none;  
+}
+.app-bar .app-bar_navigation ul li {
+  min-width: 44px;
+  min-height: 44px;
+}
+.app-bar .app-bar_navigation ul li a:hover {
+  color: #fff;
+}
+
+
+#hamburger-menu {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  margin: 10px;
+  padding: 0;
+  background-color: rgba(206, 206, 90, 0.8);
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+#hamburger-menu:focus {
+  outline: none;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  text-align: center;
+  background-image: url("../public/images/heros/hero-image_2.jpg");
+  background-position: center;
+  background-color: green;
+  background-size: cover;
+}
+
+/* @media
+    (-webkit-min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi) {
+        .hero {
+            background-repeat: repeat;
+            background-image: url("../public/images/heros/hero-image_2-small.jpg");
+        }
+}
+@media
+(min-width: 800px) {
+    .hero {
+        background-image: url("../public/images/heros/hero-image_2.jpg");
+    }
+} */
+
+.hero__inner {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.hero__title {
+  color: var(--primary);
+  font-family: "Dela Gothic One", cursive;
+  font-weight: 500;
+  font-size: 36px;
+}
+
+.hero__tagline {
+  color: var(--primary);
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+#about {
+  padding: 10rem 7% 1.4rem;
+}
+
+#about h2 {
+  font-family: "Dela Gothic One", cursive;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.menu {
+  padding: 8rem 7% 1.4rem;
+}
+
+.menu h2 {
+  font-family: "Dela Gothic One", cursive;
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+.restaurants {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  margin: 32px 0;
+}
+ 
+.restaurant-item {
+  width: 100%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  font-family: 'Hind Siliguri', sans-serif;
+  background-color: #fff;
+}
+ 
+.restaurant-item__header {
+  position: relative;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+ 
+.restaurant-item .restaurant-item__header .restaurant-item__header__picture{
+  width: 100%;
+}
+ 
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating {
+  position: absolute;
+  padding: 8px;
+  bottom: 20px;
+  left: 0;
+  display: inline-block;
+  background-color: black;
+  color: white;
+}
+ 
+.restaurant-item .restaurant-item__header .restaurant-item__header__rating .restaurant-item__header__rating__score {
+  margin-left: 10px;
+}
+ 
+.restaurant-item .restaurant-item__content {
+  padding: 16px;
+}
+ 
+.Restaurant-item .Restaurant-item__content h3 {
+  margin: 0 0 10px 0;
+}
+ 
+.restaurant-item .restaurant-item__content h3 a {
+  min-width: 44px;
+  min-height: 44px;
+  color: #C36A2D;
+  padding: 10px;
+  text-decoration: none;
+  font-family: 'Hind Siliguri', sans-serif;
+}
+ 
+.restaurant-item .restaurant-item__content p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: 'Hind Siliguri', sans-serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; 
+  -webkit-box-orient: vertical;
+}
+ 
+.restaurants {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px 16px;
+}
+ 
+.restaurants .restaurant__picture {
+  width: 100%;
+  max-width: 400px;
+}
+ 
+.restaurants .restaurant__info h4 {
+  margin: 8px 0;
+}
+/*
+  Like
+*/
+.like {
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #db0000;
+  
+  position: fixed;
+  bottom: 16px;
+  right: 16px;
+  border-radius: 50%;
+  border: 0;
+  
+  font-size: 18px;
+  color: white;
+  cursor: pointer;
+}
+
+footer {
+  background-color: var(--primary);
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+footer .socials a {
+  color: #b2533e;
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+}
+
+.socials a {
+  color: #b2533e;
+  margin: 0px;
+  padding: 0px;
+}
+
+footer .socials a:hover {
+  color: #fff;
+}
+
+.app-bar .app-bar_brand,
+.socials a,
+a {
+  min-width: 44px;
+  min-height: 44px;
+  margin: 10px;
+  padding: 0;
+}
+
+/* CSS untuk responsifitas */
+
+@media (max-width: 576px) {  
+  .app-bar .app-bar_brand h1  {
+    font-size: 75%;
+  }
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: 320px;
+  }
+}
+
+
+
+@media (max-width: 1200px) {
+  html {
+    font-size: 75%;
+  }
+  .hero {
+    background-size: cover;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 115%;
+  }
+  #hamburger-menu {
+    display: inline-block;
+  }
+  .app-bar .app-bar_navigation {
+    position: absolute;
+    top: 20px;
+    left: -180px;
+    width: 150px;
+    transition: all 0.3s;
+    padding: 8px;
+    background-color: white;
+    overflow: hidden;
+  }
+   
+  .app-bar .app-bar_navigation.open {
+    left: 0;
+  }
+  .app-bar .app-bar_navigation ul li a {
+    background-color: var(--primary);
+    display: inline-block;
+    text-decoration: none;
+    color: #b2533e;
+    padding: 8px;
+    margin-bottom: 5px;
+    width: 100%;
+    
+  }
+  .app-bar .app-bar_navigation ul {
+    flex-direction: column;
+  }
+  /*.app-bar .app-bar_navigation ul.active {
+    right: 0;
+  }
+  .app-bar .app-bar_navigation ul li {
+    color: #b2533e;
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 1rem;
+  } */
+}

@@ -1,37 +1,65 @@
-/* eslint-disable no-undef */
 const assert = require('assert');
-Feature('likingRestaurants');
+// eslint-disable-next-line no-undef
+Feature('Liking Restaurant');
 
-// eslint-disable-next-line no-unused-vars
-Scenario('test something', ({ I }) => {
-
-});
-
+// eslint-disable-next-line no-undef
 Before(({ I }) => {
   I.amOnPage('/#/favorite');
 });
-
-Scenario('showing empty liked restaurants', ({ I }) => {
-  I.seeElement('.restaurant-item');
-  //   I.seeElement('.query');
-  I.see('Tidak ada restaurant untuk ditampilkan', '.restaurant-item');
+// eslint-disable-next-line no-undef
+Scenario('showing empty liked restaurant', ({ I }) => {
+  I.seeElement('#query');
+  I.see('Tidak ada Restaurant untuk ditampilkan', '.restaurants-item__not__found');
 });
 
+// eslint-disable-next-line no-undef
 Scenario('liking one restaurant', async ({ I }) => {
-  I.see('Tidak ada restaurant untuk ditampilkan', '.restaurant-item');
+  I.see('Tidak ada Restaurant untuk ditampilkan', '.restaurants-item__not__found');
   I.amOnPage('/');
 
-  I.seeElement('.restaurant__titlle a');
+  // eslint-disable-next-line no-undef
+  I.seeElement('.restaurant__title');
+  // eslint-disable-next-line no-undef
   const firstRestaurant = locate('.restaurant__title a').first();
-  const firstRestaurantTitle = await I.grabTextFrom(firstRestaurant);
+  // const firstRestaurantName = await I.grabTextFrom(firstRestaurant);
+  const firstRestaurantName = await I.grabTextFrom('.restaurant-item__header');
+  I.click(firstRestaurant);
+
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+  const likedRestaurantName = await I.grabTextFrom('.restaurant-item__header');
+  assert.strictEqual(firstRestaurantName, likedRestaurantName);
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.restaurants');
+});
+
+// eslint-disable-next-line no-undef
+Scenario('unliking one restaurant', async ({ I }) => {
+  I.see('Tidak ada Restaurant untuk ditampilkan', '.restaurant-item__not__found');
+
+  I.amOnPage('/');
+
+  I.seeElement('.restaurant__title');
+  // eslint-disable-next-line no-undef
+  const firstRestaurant = locate('.restaurant__title a').first();
+  const firstRestaurantName = await I.grabTextFrom('.restaurant-item__header');
   I.click(firstRestaurant);
 
   I.seeElement('#likeButton');
   I.click('#likeButton');
 
   I.amOnPage('/#/favorite');
-  I.seeElement('.restaurant-item');
-  const likedRestaurantTitle = await I.grabTextFrom('.restaurant__title');
+  I.seeElement('.restaurants');
+  const likedRestaurantName = await I.grabTextFrom('.restaurant-item__header');
 
-  assert.strictEqual(firstRestaurantTitle, likedRestaurantTitle);
+  assert.strictEqual(firstRestaurantName, likedRestaurantName);
+
+  I.click('.restaurant__title');
+
+  I.seeElement('#likeButton');
+  I.click('#likeButton');
+
+  I.amOnPage('/#/favorite');
+  I.see('Tidak ada Restaurant untuk ditampilkan', '.restaurant-item__not__found');
 });
